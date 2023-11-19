@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const Form = ({ type, setPost, submitting, handleSubmit, post }) => {
   return (
@@ -25,16 +26,28 @@ const Form = ({ type, setPost, submitting, handleSubmit, post }) => {
         </label>
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">
-            Tag{` `}<span className="font-normal">(#product, #webdevelopment, #idea)</span>
+            Tag{` `}
+            <span className="font-normal">
+              (#product, #webdevelopment, #idea)
+            </span>
           </span>
           <input
             value={post.tag}
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            placeholder="Write your prompt here..."
+            placeholder="#tag"
             required
-            className="form_textarea"
+            className="form_input"
           />
         </label>
+        <div className="flex-end mx-3 mb-5 gap-4">
+          <Link href="/" className="text-gray-500 text-sm">
+            Cancel
+          </Link>
+
+          <button type="submit" className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white" disabled={submitting}>
+            {submitting? `${type}...`:type}
+          </button>
+        </div>
       </form>
     </section>
   );
