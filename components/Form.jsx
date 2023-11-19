@@ -11,7 +11,10 @@ const Form = ({ type, setPost, submitting, handleSubmit, post }) => {
         imagination run wild with any AI-powered platform.
       </p>
 
-      <form className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism">
+      <form
+        className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism"
+        onSubmit={handleSubmit}
+      >
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">
             Your AI Prompt
@@ -44,8 +47,12 @@ const Form = ({ type, setPost, submitting, handleSubmit, post }) => {
             Cancel
           </Link>
 
-          <button type="submit" className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white" disabled={submitting}>
-            {submitting? `${type}...`:type}
+          <button
+            type="submit"
+            className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white"
+            disabled={submitting}
+          >
+            {submitting ? `${type}...` : type}
           </button>
         </div>
       </form>
