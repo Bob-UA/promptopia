@@ -26,13 +26,11 @@ const Feed = () => {
   };
   
   useEffect(() => {
-    const filterFunction = (post) => {
+    const filteredData = posts?.filter((post) => {
       const promptMatch = post.prompt.toLowerCase().includes(searchText);
       const tagMatch = post.tag.toLowerCase().includes(searchText);
       return promptMatch || tagMatch;
-    };
-
-    const filteredData = posts?.filter(filterFunction);
+    });
     setFilteredPosts(filteredData);
   }, [searchText]);
 
