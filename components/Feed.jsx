@@ -19,10 +19,11 @@ const Feed = () => {
   const [searchText, setSearchText] = useState("");
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
+  
 
-    const handleSearchChange = (e) => {
-      const normalizedFilter = e.target.value.toLowerCase();
-      setSearchText(normalizedFilter);
+  const handleSearchChange = (e) => {
+    const normalizedFilter = e.target.value.toLowerCase();
+    setSearchText(normalizedFilter);
   };
   
   useEffect(() => {
@@ -34,9 +35,9 @@ const Feed = () => {
     setFilteredPosts(filteredData);
   }, [searchText]);
 
-    const handleTagClick = (tag) => {
-      setSearchText(tag);
-    };
+  const handleTagClick = (tag) => {
+  setSearchText(tag);
+  };
 
   useEffect(() => {
     const fetchPosts = async ()=>{
